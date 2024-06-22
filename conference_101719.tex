@@ -96,14 +96,30 @@ Melalui analisis ini, penelitian ini tidak hanya berkontribusi pada pengembangan
 FTS menggunakan tiga prinsip utama dalam proses peramalan, yaitu Fuzzifikasi, Hubungan Logika Fuzzy (\textit{Fuzzy Logical Relationship}), dan Peramalan (\textit{Forecasting}). Fuzzifikasi adalah proses mengubah data numerik menjadi data \textit{fuzzy}, yaitu data yang diwakili oleh himpunan \textit{fuzzy}. Setelah data difuzzifikasi, langkah selanjutnya adalah membangun hubungan logika \textit{fuzzy}. Hubungan ini menggambarkan pola hubungan antar nilai data yang telah difuzzifikasi. Terakhir, berdasarkan hubungan logika \textit{fuzzy} yang telah dibangun, dilakukan peramalan untuk memprediksi nilai data di masa depan.
 
 Secara lengkap, proses peramalan menggunakan FTS terdiri dari beberapa tahapan, yaitu:
-\begin{enumerate}
-    \item Menentukan interval data dan jumlah himpunan \textit{fuzzy}
-    \item Memperoleh data historis
-    \item Mendefinisikan \textit{fuzzy sets} berdasarkan interval data dan data historis
-    \item Membangun hubungan logika \textit{fuzzy}
-    \item Mencari pola hubungan antar data
-    \item Memasukan data input kedalam model FTS dan melakukan peramalan
-\end{enumerate}
+    1) Menentukan interval data dan jumlah himpunan \textit{fuzzy}.
+    2) Memperoleh data historis.
+    3) Mendefinisikan \textit{fuzzy sets} berdasarkan interval data dan data historis.
+    4) Membangun hubungan logika \textit{fuzzy}.
+    5) Mencari pola hubungan antar data.
+    6) Memasukan data input kedalam model FTS dan melakukan peramalan.
+
+\subsection{Prediksi Harga}
+Prediksi harga adalah bidang penelitian yang sangat penting dalam ekonomi dan keuangan, karena memiliki implikasi langsung pada keputusan investasi, kebijakan moneter, dan strategi bisnis. Prediksi harga mencakup berbagai metode dan pendekatan, mulai dari metode statistik tradisional hingga teknik kecerdasan buatan yang lebih canggih[6].
+
+Metode statistik tradisional seperti regresi linier, analisis deret waktu (time series), dan model autoregressive integrated moving average (ARIMA) telah lama digunakan untuk memprediksi harga. Regresi linier mencoba menemukan hubungan linear antara variabel prediktor dan harga. Misalnya, dalam pasar saham, faktor-faktor seperti pendapatan perusahaan, suku bunga, dan inflasi sering digunakan sebagai variabel prediktor untuk memodelkan harga saham. Model ARIMA, di sisi lain, fokus pada pola dan tren dalam data historis harga untuk membuat prediksi. Model ini menggabungkan komponen autoregressive (AR), differencing (I), dan moving average (MA) untuk menangkap dinamika data.
+
+Namun, metode tradisional ini sering kali memiliki keterbatasan dalam menangani data yang kompleks dan tidak linier. Oleh karena itu, pendekatan baru berbasis kecerdasan buatan dan pembelajaran mesin telah dikembangkan dan digunakan secara luas dalam prediksi harga. Salah satu teknik yang paling menonjol adalah jaringan saraf tiruan (artificial neural networks), yang mampu menangkap hubungan non-linear dan pola kompleks dalam data. Jaringan saraf tiruan dapat dilatih menggunakan data historis untuk mengenali pola yang mendasari dan membuat prediksi yang lebih akurat.
+
+Metode lain yang populer adalah support vector machines (SVM), yang bekerja dengan menemukan hyperplane optimal yang memisahkan data ke dalam kategori yang berbeda. Dalam konteks prediksi harga, SVM dapat digunakan untuk mengklasifikasikan periode waktu sebagai tren naik atau turun berdasarkan berbagai fitur input. Teknik ensemble seperti random forest dan gradient boosting juga telah digunakan untuk meningkatkan akurasi prediksi dengan menggabungkan hasil dari beberapa model prediksi individu.
+
+Selain itu, model berbasis teori himpunan fuzzy seperti fuzzy time series juga telah diterapkan dalam prediksi harga. Metode ini memperhitungkan ketidakpastian dan ketidakjelasan dalam data, yang seringkali diabaikan oleh metode tradisional. Dalam fuzzy time series, data historis harga diubah menjadi himpunan fuzzy, dan aturan-aturan fuzzy diturunkan untuk meramalkan nilai di masa depan. Misalnya, studi oleh Song dan Chissom (1993) menunjukkan bahwa metode ini efektif untuk memprediksi data ekonomi yang bersifat fluktuatif dan tidak pasti.
+
+Prediksi harga juga dapat dipengaruhi oleh berbagai faktor eksternal, seperti kondisi ekonomi makro, sentimen pasar, dan peristiwa global. Oleh karena itu, analisis sentimen berbasis teks dari media sosial dan berita juga telah digunakan untuk meningkatkan akurasi prediksi harga. Teknik natural language processing (NLP) digunakan untuk mengekstrak informasi yang relevan dari teks dan menggabungkannya dengan data numerik untuk membuat prediksi yang lebih komprehensif.
+
+Dalam literatur, terdapat banyak studi yang menunjukkan keberhasilan berbagai metode prediksi harga. Misalnya, studi oleh Zhang dan Wu (2009) membandingkan kinerja model ARIMA dengan jaringan saraf tiruan dalam memprediksi harga saham, dan menemukan bahwa jaringan saraf tiruan memberikan hasil yang lebih akurat. Studi lainnya oleh Chen dan Hwang (2000) memperkenalkan metode fuzzy time series yang diperbaiki untuk prediksi harga emas, menunjukkan bahwa pendekatan ini lebih unggul dibandingkan dengan metode prediksi tradisional dalam kondisi pasar yang bergejolak.
+
+Secara keseluruhan, prediksi harga adalah bidang yang terus berkembang dengan berbagai pendekatan yang menawarkan keunggulan dan keterbatasannya masing-masing. Dengan kemajuan teknologi dan peningkatan kapasitas komputasi, diharapkan metode prediksi harga akan semakin canggih dan mampu memberikan hasil yang lebih akurat dan andal di masa depan.
+
 
 
 \section{Metode Penelitian}
@@ -204,6 +220,7 @@ Fuzzy Time Series (FTS) kurang cocok digunakan untuk memprediksi data yang memer
 \bibitem{b3} Ikhsanudin, A., Santoso, K. I., \& Wahyudion, S. (2022). Metode Fuzzy Time Series Model Chen untuk Memprediksi Jumlah Kasus Aktif Covid-19 di Indonesia. TRANSFORMASI, 18(1).
 \bibitem{b4} Sumartini, S., Hayati, M. N., \& Wahyuningsih, S. (2017). Peramalan Menggunakan Metode Fuzzy Time Series Cheng. EKSPONENSIAL, 8(1), 51-56.
 \bibitem{b5} Murni, C. K. (2023). Perbandingan Peramalan Penjualan Minuman Menggunakan Algoritma Single Exponential Smoothing Dan Triple Exponential Smoothing. Journal of Informatics Development, 1(2), 59-64.
+\bibitem{b6} Ling, C.Y. Marques, J.A.L. (2024). Stock market prediction using artificial intelligence: A systematic review of systematic reviews, 9(1), 1-11. https://doi.org/10.1016/j.ssaho.2024.100864.
 \end{thebibliography}
 
 \end{document}
