@@ -1,0 +1,232 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\captionsetup[figure]{name=Gambar}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+
+
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+\setcounter{page}{1}
+\title{Analisis \textit{Fuzzy Time Series}:\\Mengungkap Pola Harga Singkong}
+
+\author{\IEEEauthorblockN{\hspace*{-1.1cm}Agus Fuad Mudhofar}
+\IEEEauthorblockA{\hspace*{-1.1cm}\textit{Departemen Teknik Komputer} \\
+\hspace*{-1.1cm}\textit{Institut Teknologi Sepuluh Nopember}\\
+\hspace*{-1.1cm}Surabaya, Indonesia \\
+\hspace*{-1.2cm}agusfuad090@gmail.com}
+\and
+\IEEEauthorblockN{Zadun Nafiq}
+\IEEEauthorblockA{\textit{Departemen Teknik Komputer} \\
+\textit{Institut Teknologi Sepuluh Nopember}\\
+Surabaya, Indonesia \\
+\hspace*{-0.1cm}zaidunnafik@gmail.com}
+\and
+\IEEEauthorblockN{Daniel Oliver Enoch B.}
+\IEEEauthorblockA{\textit{Departemen Teknik Komputer} \\
+\textit{Institut Teknologi Sepuluh Nopember}\\
+Surabaya, Indonesia}
+\and
+\IEEEauthorblockN{\hspace*{2.4cm}Edrickson Edgar}
+\IEEEauthorblockA{\hspace*{2.4cm}\textit{Departemen Teknik Komputer} \\
+\hspace*{2.4cm}\textit{Institut Teknologi Sepuluh Nopember}\\
+\hspace*{2.4cm}Surabaya, Indonesia \\
+\hspace*{2.2cm}whirlyzaph@yahoo.co.id}
+\and
+\IEEEauthorblockN{Ahmad Aqbil Naim}
+\IEEEauthorblockA{\textit{Departemen Teknik Komputer} \\
+\textit{Institut Teknologi Sepuluh Nopember}\\
+Surabaya, Indonesia}
+}
+
+\maketitle
+
+\begin{abstract}
+    Penelitian ini berfokus pada prediksi harga singkong di Indonesia menggunakan metode \textit{Fuzzy Time Series} (FTS). Harga singkong dipengaruhi oleh berbagai faktor seperti kondisi cuaca, permintaan pasar, kebijakan pemerintah, dan biaya produksi, yang dapat menyebabkan variabilitas harga dan berdampak pada pendapatan petani serta stabilitas ekonomi sektor pertanian. Data harga singkong bulanan dari tujuh provinsi di Indonesia selama periode 2020-2022 digunakan untuk membangun model FTS. Proses peramalan melibatkan beberapa langkah, yaitu menentukan interval data, memperoleh data historis, mendefinisikan \textit{fuzzy sets}, membangun hubungan logika \textit{fuzzy}, mencari pola hubungan antar data, dan melakukan peramalan. Hasil peramalan menunjukkan bahwa model FTS dapat memberikan estimasi harga singkong untuk bulan selanjutnya dengan tingkat kesalahan sebesar 2,45\% berdasarkan evaluasi menggunakan \textit{Mean Absolute Percentage Error} (MAPE). Model ini dapat digunakan sebagai alat bantu dalam perencanaan dan pengambilan keputusan di sektor pertanian, meskipun harus selalu diperbarui dengan data terbaru untuk meningkatkan akurasi.
+\end{abstract}
+
+\begin{IEEEkeywords}
+\textit{Fuzzy Time Series}, Harga Singkong, Prediksi Harga
+\end{IEEEkeywords}
+
+\thispagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\section{Pendahuluan}
+Indonesia merupakan salah satu negara yang sebagian besar penduduknya bermata pencaharian di bidang pertanian atau bercocok tanam$^{[1]}$, dan singkong merupakan salah satu komoditas pertanian yang memiliki peran penting dalam perekonomian banyak negara, termasuk Indonesia. Sebagai bahan pangan, singkong digunakan dalam berbagai produk makanan, pakan ternak, dan industri.  Harga singkong dapat dipengaruhi oleh berbagai faktor seperti kondisi cuaca$^{[2]}$, permintaan pasar, kebijakan pemerintah, dan biaya produksi. Variabilitas harga ini tidak hanya mempengaruhi pendapatan petani tetapi juga berdampak pada stabilitas ekonomi di sektor pertanian.
+
+Dalam menghadapi tantangan ini, prediksi harga singkong dapat menjadi alat untuk memperkirakan harga beberapa bulan kedepan. \textit{Fuzzy Time Series} (FTS) adalah salah satu metode yang menawarkan keunggulan memprediksi data berbasis waktu yang bersifat luas dan dapat digunakan dalam data \textit{real time}.$^{[3]}$ Penelitian ini bertujuan untuk mengungkap pola harga singkong menggunakan pendekatan FTS dan mengembangkan model prediksi yang lebih akurat dan dapat diandalkan. Dengan model prediksi yang lebih baik, diharapkan dapat memberikan manfaat signifikan bagi petani, pedagang, dan pembuat kebijakan dalam merencanakan dan mengambil keputusan yang lebih baik.
+
+Melalui analisis ini, penelitian ini tidak hanya berkontribusi pada pengembangan ilmu pengetahuan dalam bidang prediksi harga komoditas tetapi juga berpotensi meningkatkan stabilitas ekonomi sektor pertanian dengan menyediakan alat prediksi yang lebih efektif.
+
+
+\section{Tinjauan Pustaka}
+
+\subsection{\textit{Fuzzy Time Series}}
+\textit{Fuzzy Time Series} (FTS) adalah metode peramalan yang pertama kali dikembangkan oleh Song dan Chissom pada tahun 1993.$^{[4]}$ Mereka memperkenalkan FTS dalam upaya untuk memprediksi jumlah pendaftaran mahasiswa baru di Universitas Alabama. Sejak awal pengembangannya, FTS telah terbukti efektif dan fleksibel, sehingga diaplikasikan pada berbagai macam masalah peramalan lainnya. Beberapa contoh penerapan FTS termasuk peramalan penjualan, peramalan harga saham, dan peramalan tingkat polusi udara.
+
+FTS menggunakan tiga prinsip utama dalam proses peramalan, yaitu Fuzzifikasi, Hubungan Logika \textit{Fuzzy} (\textit{Fuzzy Logical Relationship}), dan Peramalan (\textit{Forecasting}). Fuzzifikasi adalah proses mengubah data numerik menjadi data \textit{fuzzy}, yaitu data yang diwakili oleh himpunan \textit{fuzzy}. Setelah data difuzzifikasi, langkah selanjutnya adalah membangun hubungan logika \textit{fuzzy}. Hubungan ini menggambarkan pola hubungan antar nilai data yang telah difuzzifikasi. Terakhir, berdasarkan hubungan logika \textit{fuzzy} yang telah dibangun, dilakukan peramalan untuk memprediksi nilai data di masa depan.
+
+Secara lengkap, proses peramalan menggunakan FTS terdiri dari beberapa tahapan, yaitu:
+    1) Menentukan interval data dan jumlah himpunan \textit{fuzzy}.
+    2) Memperoleh data historis.
+    3) Mendefinisikan \textit{fuzzy sets} berdasarkan interval data dan data historis.
+    4) Membangun hubungan logika \textit{fuzzy}.
+    5) Mencari pola hubungan antar data.
+    6) Memasukan data input kedalam model FTS dan melakukan peramalan.
+
+\subsection{Prediksi Harga}
+Prediksi harga adalah bidang penelitian yang sangat penting dalam ekonomi dan keuangan, karena memiliki implikasi langsung pada keputusan investasi, kebijakan moneter, dan strategi bisnis. Prediksi harga mencakup berbagai metode dan pendekatan, mulai dari metode statistik tradisional hingga teknik kecerdasan buatan yang lebih canggih.$^{[6]}$
+
+Metode statistik tradisional seperti regresi linier, analisis deret waktu (time series), dan model \textit{autoregressive integrated moving average} (ARIMA) telah lama digunakan untuk memprediksi harga. Regresi linier mencoba menemukan hubungan linear antara variabel prediktor dan harga. Misalnya, dalam pasar saham, faktor-faktor seperti pendapatan perusahaan, suku bunga, dan inflasi sering digunakan sebagai variabel prediktor untuk memodelkan harga saham.$^{[7]}$ Model ARIMA, di sisi lain, berfokus pada pola dan tren dalam data historis harga untuk membuat prediksi.$^{[8]}$ Model ini menggabungkan komponen \textit{autoregressive} (AR), \textit{differencing} (I), dan \textit{moving average} (MA) untuk menangkap dinamika data.$^{[9]}$
+
+Selain itu, model berbasis teori himpunan \textit{fuzzy} seperti FTS juga telah diterapkan dalam prediksi harga.$^{[10]}$ Metode ini memperhitungkan ketidakpastian dan ketidakjelasan dalam data, yang seringkali diabaikan oleh metode tradisional. Dalam FTS, data historis harga diubah menjadi himpunan \textit{fuzzy}, dan aturan-aturan \textit{fuzzy} diturunkan untuk meramalkan nilai di masa depan. Misalnya, studi oleh Song dan Chissom (1993) menunjukkan bahwa metode ini efektif untuk memprediksi data ekonomi yang bersifat fluktuatif dan tidak pasti.$^{[11]}$
+
+Dalam literatur, terdapat banyak studi yang menunjukkan keberhasilan berbagai metode prediksi harga. Misalnya, studi oleh Zhang dan Wu (2009) membandingkan kinerja model ARIMA dengan model \textit{artificial neural networks} (ANN) dalam memprediksi harga saham, dan menemukan bahwa ANN memberikan hasil yang lebih akurat.$^{[12]}$ Studi lainnya oleh Alptekin,D. dan Alptekin,B. (2017) memperkenalkan metode FTS yang diaugmentasi untuk prediksi harga emas, menunjukkan bahwa pendekatan ini lebih unggul dibandingkan dengan metode prediksi tradisional dalam kondisi pasar yang bergejolak.$^{[13]}$
+
+Secara keseluruhan, prediksi harga adalah bidang yang terus berkembang dengan berbagai pendekatan yang menawarkan keunggulan dan keterbatasannya masing-masing. Dengan kemajuan teknologi dan peningkatan kapasitas komputasi, diharapkan metode prediksi harga akan semakin canggih dan mampu memberikan hasil yang lebih akurat dan andal di masa depan.
+
+\subsection{\textit{Mean Absolute Percentage Error}}
+\textit{Mean Absolute Percentage Error} (MAPE) adalah alat statistik yang digunakan untuk mengukur keakuratan suatu model statistik ketika melakukan peramalan atau prediksi. Dalam referensi lain, MAPE juga dikenal dengan sebutan \textit{mean absolute deviation rate} (MAPD). Pendekatan ini berfungsi untuk mengelola kemungkinan kesalahan dalam perkiraan dibandingkan dengan nilai aktual.$^{[14]}$ MAPE menyediakan cara yang mudah untuk menilai seberapa jauh nilai suatu prediksi menyimpang dari nilai aktual, relatif terhadap besarnya nilai aktual tersebut.
+
+Konsep pengukuran akurasi peramalan berakar pada pekerjaan statistik awal, tetapi MAPE sebagai pengukuran spesifik mulai menjadi terkenal pada pertengahan abad ke-20. Sepanjang sejarahnya, MAPE digunakan dalam peramalan bisnis dan ekonomi karena kemudahan interpretasi dan komunikasinya untuk pihak non-teknis. Namun, keterbatasannya dalam skenario tertentu (seperti ketika berhadapan dengan data yang memiliki nilai nol) telah menyebabkan diskusi yang berkelanjutan mengenai kapan dan bagaimana MAPE harus diterapkan.
+
+
+
+\section{Metode Penelitian}
+
+Penelitian ini menggunakan data harga singkong dari tahun 2020 hingga 2022. Data ini diperoleh dari hasil laporan yang diterbitkan oleh Kementerian Pertanian Indonesia yang bekerja sama dengan Badan Pusat Statistik. Data yang digunakan adalah data bulanan yang mewakili banyak wilayah di Indonesia dengan didasarkan kepada 7 provinsi yaitu Lampung, Jawa Tengah, Jawa Timur, Jawa Barat, Sumatera Utara, Yogyakarta, dan NTT. Data ini kemudian diolah dan dianalisis menggunakan metode FTS dengan diagram \textit{flowchart} sebagai berikut:
+
+\begin{figure}[htbp]
+    \centering
+    {\includegraphics[scale=0.7]{images/Flowchart.png}} 
+    \caption{\textit{Flowchart} Pengolahan Data}
+\end{figure}
+
+
+\subsection{Menentukan interval data dan jumlah himpunan \textit{fuzzy}}\label{AA}
+Untuk menentukan interval data dan jumlah himpunan \textit{fuzzy} yang tepat, disini digunakan rumus Sturges sebagai berikut:
+\begin{equation}
+    k = 1 + 3.33 \times \log_{10}(n)
+\end{equation}
+dimana $k$ adalah jumlah kelas, dan $n$ adalah jumlah data. Data yang digunakan adalah data harga singkong dari tahun 2020 hingga 2022, sehingga didapatkan $n = 36$ dalam satuan bulan. Dengan menggunakan rumus tersebut, didapatkan $k = 6.18$. Karena jumlah kelas harus berupa bilangan bulat, maka jumlah kelas yang digunakan adalah 6.
+\subsection{Memperoleh data historis}
+Data historis yang digunakan adalah data harga singkong dari tahun 2020 hingga 2022. Data ini diperoleh dari hasil laporan yang diterbitkan oleh Kementerian Pertanian Indonesia yang bekerja sama dengan Badan Pusat Statistik. Data yang digunakan adalah data bulanan yang mewakili banyak wilayah di Indonesia dengan didasarkan kepada 7 provinsi yaitu Lampung, Jawa Tengah, Jawa Timur, Jawa Barat, Sumatera Utara, Yogyakarta, dan NTT.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/Data Historis.png} 
+    \caption{Data Historis Harga Singkong}
+\end{figure}
+Data harga yang digunakan dalam penelitian ini adalah data harga singkong produsen dari tahun 2020 hingga 2022. Data ini kemudian diolah dan dianalisis menggunakan metode FTS untuk memprediksi harga singkong di bulan selanjutnya.
+
+\subsection{Mendefinisikan \textit{fuzzy sets} berdasarkan interval data dan data historis}
+Dalam mendefinisikan \textit{fuzzy sets}, digunakan pengelompokkan berdasarkan interval data. Metode ini membagi data menjadi beberapa interval berdasarkan rentang nilai data. Setiap interval kemudian diwakili oleh himpunan \textit{fuzzy}. Dalam penelitian ini, digunakan 6 interval data yang masing-masing diwakili oleh himpunan \textit{fuzzy}, yaitu:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/Fuzzifikasi.png} 
+    \caption{Fuzzifikasi}
+\end{figure}
+
+\subsection{Membangun hubungan logika \textit{fuzzy}}
+Dalam membangun hubungan logika \textit{fuzzy}, digunakan metode \textit{Fuzzy Logical Relationship} (FLR). Metode ini membangun hubungan antar data dengan menggunakan aturan \textit{fuzzy}. Aturan ini menggambarkan pola hubungan antar data yang telah difuzzifikasi. Metode ini akan memapping klasifikasi data harga bulan ini ke dalam klasifikasi data harga bulan selanjutnya, dengan hasil mapping sebagai berikut:
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{images/FLR.png} 
+    \caption{\textit{Fuzzy Logical Relationship}}
+\end{figure}
+Nilai FLRG adalah nilai yang didapat dari hasil mapping antara data harga bulan ini dengan data harga bulan selanjutnya. Nilai ini digunakan untuk memprediksi harga singkong di bulan selanjutnya.
+Untuk mendapatkan nilai FLRG, digunakan rumus sebagai berikut:
+    \begin{equation}
+        FLRG = \frac{\text{Median (FLRG)}}{n}
+    \end{equation}
+    \begin{equation*}
+        FLRG_{A1} = \frac{3108.5 + 3171.5 + 3423.5}{3}
+    \end{equation*}
+    \begin{equation*}
+        FLRG_{A1} = 3234.5
+    \end{equation*}
+   
+
+
+
+\subsection{Mencari pola hubungan antar data}
+Langkah selanjutnya adalah mencari pola hubungan antar data pada data yang telah diperoleh. Dengan menggunakan metode FTS, didapatkan pola hubungan antar data sebagai berikut:
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{images/Pola data.png} 
+    \caption{Pola Hubungan Antar Data}
+\end{figure}
+Data diatas merupakan hasil dari pencarian pola hubungan antar data yang dilakukan dengan menggunakan metode FTS. Data ini merupakan sebagian dari keseluruhan data guna keperluan contoh visualisasi pola hubungan antar data.
+
+
+
+\subsection{Memasukan data input kedalam model FTS dan melakukan peramalan}
+Langkah terakhir adalah memasukan data input kedalam model FTS dan melakukan peramalan. Dengan menggunakan data historis yang telah diperoleh, data input dimasukan kedalam model FTS. Model ini kemudian melakukan peramalan untuk memprediksi harga singkong di bulan selanjutnya. Hasil peramalan ini kemudian digunakan sebagai dasar untuk membuat keputusan yang lebih baik dalam merencanakan dan mengelola harga singkong. Berikut adalah contoh hasil peramalan harga singkong menggunakan model FTS:
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{images/Peramalan.png} 
+    \caption{Peramalan Harga Singkong}
+\end{figure}
+Dengan menggunakan model FTS, didapatkan hasil peramalan harga singkong untuk bulan selanjutnya. Hasil ini dapat menjadi perkiraan harga singkong di bulan selanjutnya. Peramalan harga singkong ini harus selalu diperbarui dengan data terbaru untuk mendapatkan hasil yang lebih akurat dan dapat diandalkan karena jika mengandalkan pola harga yang sudah lama, maka hasil peramalan akan kurang akurat karena bersifat \textit{outdated}.
+
+\subsection{Evaluasi Model}
+Evaluasi model dilakukan dengan membandingkan hasil peramalan dengan data aktual. Dengan menggunakan metode MAPE, dapat dihitung tingkat kesalahan peramalan. Rumus MAPE adalah sebagai berikut:
+\begin{equation}
+    MAPE = \frac{1}{n} \sum_{t=1}^{n} \left| \frac{A_t - F_t}{A_t} \right| \times 100\%
+\end{equation}
+dimana $A_t$ adalah data aktual, $F_t$ adalah data peramalan, dan $n$ adalah jumlah data. Dengan menggunakan rumus tersebut, dapat dihitung tingkat kesalahan peramalan dan mengevaluasi model yang telah dibangun. Berdasarkan hasil evaluasi, model FTS dalam penelitian ini memiliki tingkat kesalahan sebesar 2.45\% yang menunjukkan bahwa model ini cukup akurat dan dapat diandalkan untuk memprediksi harga singkong di bulan selanjutnya.
+
+
+
+\section{Hasil dan Pembahasan}
+Dari hasil pengolahan data yang telah dilakukan, diperoleh data prediksi harga singkong untuk bulan Januari 2023 sebesar Rp 3.361,00. Data ini dihasilkan dari model FTS yang telah dibangun berdasarkan data historis harga singkong dari tahun 2020 hingga 2022.
+FTS kurang cocok digunakan untuk memprediksi data yang memerlukan tingkat ketelitian dan keakuratan yang sangat tinggi. FTS lebih cocok digunakan untuk memprediksi data yang bersifat luas dan tidak memerlukan keakuratan yang luar biasa. Oleh karena itu, model FTS yang telah dibangun dalam penelitian ini dapat digunakan sebagai alat bantu untuk memprediksi harga singkong di bulan selanjutnya dengan catatan, model ini harus selalu diperbarui dengan data terbaru untuk mendapatkan hasil yang lebih akurat dan dapat diandalkan.
+
+
+
+\begin{thebibliography}{00}
+\bibitem{b1} Sarbaini, S., \& Yanti, D. (2023). Prediksi Harga Beras Belida Di Kota Pekanbaru Menggunakan Fuzzy Time Series Cheng. Jurnal Teknologi dan Manajemen Industri Terapan, 2(3), 234-241.
+\bibitem{b2}Kementerian Pertanian. (2023). Pengaruh Perubahan Iklim Terhadap Sektor Pertanian. Upland.psp.pertanian.go.id. Diakses pada 15 Juni 2024, dari https://upland.psp.pertanian.go.id/public/artikel/1687919315/pengaruh-perubahan-iklim-terhadap-sektor-pertanian
+\bibitem{b3} Ikhsanudin, A., Santoso, K. I., \& Wahyudion, S. (2022). Metode Fuzzy Time Series Model Chen untuk Memprediksi Jumlah Kasus Aktif Covid-19 di Indonesia. TRANSFORMASI, 18(1).
+\bibitem{b4} Sumartini, S., Hayati, M. N., \& Wahyuningsih, S. (2017). Peramalan Menggunakan Metode Fuzzy Time Series Cheng. EKSPONENSIAL, 8(1), 51-56.
+\bibitem{b5} Murni, C. K. (2023). Perbandingan Peramalan Penjualan Minuman Menggunakan Algoritma Single Exponential Smoothing Dan Triple Exponential Smoothing. Journal of Informatics Development, 1(2), 59-64.
+\bibitem{b6} Ling, C.Y. Marques, J.A.L. (2024). Stock market prediction using artificial intelligence: A systematic review of systematic reviews, 9(1), 1-11. https://doi.org/10.1016/j.ssaho.2024.100864.
+\bibitem{b7} Purwaningsih, S. S., Suryani, A., \& Taylor, A. (2015). PENGARUH INFLASI, SUKU BUNGA, DAN INDEKS HARGA SAHAM GABUNGAN (IHSG) TERHADAP KINERJA REKSADANA DENGAN PERMODELAN REGRESI DATA PANEL. Sigma-Mu, 7(2), 1-16.
+\bibitem{b8} Wati, L., \& Solichin, A. (2024). Prediksi Nilai Pengadaan Barang Dan Jasa Pada Sebuah Perusahaan Pariwisata Menggunakan Metode Arima dan Fuzzy Time Series. Jurnal Inovtek Polbeng Seri Informatika, 9(1).
+\bibitem{b9} Hablinawati, L., \& Nugraha, J. (2024). Peramalan Nilai Tukar Petani di Daerah Istimewa Yogyakarta Menggunakan Metode ARIMA: Peramalan Nilai Tukar Petani di Daerah Istimewa Yogyakarta Menggunakan Metode ARIMA. Emerging Statistics and Data Science Journal, 2(1).
+
+\bibitem{b10} Nurlela, Siti, Fanani, Aris, \& Khaulasari, Hani (2023). Harga Minyak Mentah WTI Menggunakan Metode Fuzzy Time Series Markov Chain. Jurnal Fourier, 12(1), 10-19, ISSN 2541-5239, Al-Jamiah Research Centre, https://doi.org/10.14421/fourier.2023.121.10-19
+
+\bibitem{b11} Song, Q., \& Chissom, B. S. (1993). Fuzzy time series and its models. Fuzzy sets and systems, 54(3), 269-277.
+
+\bibitem{b12} Zhang, Y., \& Wu, L. (2009). Stock market prediction of S\&P 500 via combination of improved BCO approach and BP neural network. Expert systems with applications, 36(5), 8849-8854.
+
+\bibitem{b13} Alptekin, D., Alptekin, B., \& Aladag, C. H. (2017). Forecasting Gold Prices with Fuzzy Time Series. Turkish Journal of Fuzzy Systems (TJFS), 8(2).
+
+\bibitem{b14} Cahyana, Y., et al. (2023). Work Process Efficiency With Goods Arrival Predictions Against Production Plans Using Linear Regression Algorithms. Edutran Computer Science \& Information Technology, 1(1), 9-18, e-ISSN 2986-7703, p-ISSN 2986-9013. https://www.researchgate.net/publication/371621534\_Work\_Process\_Eff\\iciency\_With\_Goods\_Arrival\_Predictions\_Against\_Production\_Plans\_U\\sing\_Linear\_Regression\_Algorithms.
+
+
+\end{thebibliography}
+
+\end{document}
