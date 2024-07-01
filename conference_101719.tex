@@ -176,7 +176,7 @@ Dengan menggunakan model FTS, didapatkan hasil peramalan harga singkong untuk bu
 Data historis harga singkong digunakan sebagai dasar untuk analisis ini. Berikut adalah grafik yang menunjukkan data historis harga singkong:
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.4]{images/Data Historis.png} 
+    \includegraphics[width=\columnwidth]{images/Data Historis.png} 
     \caption{Data Historis Harga Singkong}
 \end{figure}
 Data tersebut kemudian diaugmentasi untuk memperoleh data yang lebih lengkap dan representatif. Karena data direkap bulanan, maka kode data augmentasi menggunakan tanggal untuk membedakan data asli dengan data augmentasi. Data augmentasi didapat dari penghitungan rata-rata bulan sebelumnya dan bulan setelahnya. Augmentasi dilakukan hingga data mencapai lebih dari 100 data. Data ini kemudian digunakan sebagai dasar untuk membangun model FTS.
@@ -191,7 +191,7 @@ Untuk menentukan interval data dan jumlah himpunan \textit{fuzzy}, digunakan rum
 Setiap interval kemudian diwakili oleh himpunan \textit{fuzzy}. Dalam penelitian ini, digunakan 8 interval data yang masing-masing diwakili oleh himpunan \textit{fuzzy}, yaitu:
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.55]{images/intervals_table.jpg} 
+    \includegraphics[width=\columnwidth]{images/table.jpg} 
     \caption{Fuzzifikasi data historis harga singkong}
 \end{figure}
 
@@ -209,7 +209,7 @@ Dari hasil pemetaan tersebut, didapatkan nilai FLRG yang digunakan untuk mempred
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.7]{images/flrg_table.jpg} 
+    \includegraphics[width=\columnwidth]{images/flrg_table.jpg} 
     \caption{\textit{Fuzzy Logical Relationship Group}}
 \end{figure}
 
