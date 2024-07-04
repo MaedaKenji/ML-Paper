@@ -53,7 +53,7 @@ danieloliverenoch@gmail.com}
 \hspace*{2.4cm}Surabaya, Indonesia \\
 \hspace*{2.2cm}whirlyzaph@yahoo.co.id}
 \and
-\IEEEauthorblockN{Ahmad Aqbil Naim}
+\IEEEauthorblockN{Ahmad Aqbil Na'im}
 \IEEEauthorblockA{\textit{Departemen Teknik Komputer} \\
 \textit{Institut Teknologi Sepuluh Nopember}\\
 Surabaya, Indonesia\\
@@ -63,11 +63,11 @@ aqbil004@gmail.com}
 \maketitle
 
 \begin{abstract}
-    Penelitian ini berfokus pada prediksi harga singkong di Indonesia menggunakan metode \textit{Fuzzy Time Series} (FTS). Harga singkong dipengaruhi oleh berbagai faktor seperti kondisi cuaca, permintaan pasar, kebijakan pemerintah, dan biaya produksi, yang dapat menyebabkan variabilitas harga dan berdampak pada pendapatan petani serta stabilitas ekonomi sektor pertanian. Data harga singkong bulanan dari tujuh provinsi di Indonesia selama periode 2020-2022 digunakan untuk membangun model FTS. Proses peramalan melibatkan beberapa langkah, yaitu menentukan interval data, memperoleh data historis, mendefinisikan \textit{fuzzy sets}, membangun hubungan logika \textit{fuzzy}, mencari pola hubungan antar data, dan melakukan peramalan. Hasil peramalan menunjukkan bahwa model FTS dapat memberikan estimasi harga singkong untuk bulan selanjutnya dengan tingkat kesalahan sebesar 2,45\% berdasarkan evaluasi menggunakan \textit{Mean Absolute Percentage Error} (MAPE). Model ini dapat digunakan sebagai alat bantu dalam perencanaan dan pengambilan keputusan di sektor pertanian, meskipun harus selalu diperbarui dengan data terbaru untuk meningkatkan akurasi.
+    Penelitian ini bertujuan untuk memprediksi harga singkong menggunakan metode Fuzzy Time Series (FTS). Data historis harga singkong diambil sebagai dasar analisis, dan augmentasi data dilakukan untuk melengkapi data yang kurang. Menggunakan rumus Sturges, delapan interval fuzzy ditentukan dan digunakan untuk membentuk himpunan fuzzy. Nilai keanggotaan himpunan fuzzy dihitung berdasarkan aturan Song dan Chissom (1993). Setelah itu, nilai Fuzzy Logical Relationship Group (FLRG) ditentukan melalui pemetaan klasifikasi data harga bulan ini ke bulan selanjutnya. Model FTS kemudian digunakan untuk meramalkan harga singkong bulan depan. Hasil peramalan menunjukkan bahwa FTS dapat memberikan prediksi harga singkong, meskipun akurasinya masih rendah untuk prediksi jangka panjang. Evaluasi model dilakukan dengan membandingkan hasil peramalan dengan data aktual, menunjukkan bahwa data augmentasi meningkatkan akurasi model. Kesimpulan dari penelitian ini adalah bahwa metode FTS dapat digunakan sebagai alat bantu untuk memprediksi harga singkong bulan berikutnya, namun model ini harus selalu diperbarui dengan data terbaru untuk meningkatkan akurasi. Penelitian selanjutnya disarankan untuk mengembangkan model FTS dengan data yang lebih lengkap dan membandingkannya dengan metode prediksi lainnya seperti ARIMA, regresi linier, dan artificial neural networks (ANN).
 \end{abstract}
 
 \begin{IEEEkeywords}
-\textit{Fuzzy Time Series}, Harga Singkong, Prediksi Harga
+Fuzzy Time Series, Prediksi Harga, Singkong, Fuzzy Logic
 \end{IEEEkeywords}
 
 \thispagestyle{fancy}
@@ -84,6 +84,9 @@ Melalui analisis ini, penelitian ini tidak hanya berkontribusi pada pengembangan
 
 
 \section{Tinjauan Pustaka}
+\subsection{\textit{Fuzzy Logic}}
+Fuzzy logic merupakan suatu konsep matematika yang berusaha untuk memodelkan proses penalaran manusia yang tidak pasti atau samar-samar. Berbeda dengan logika klasik yang hanya mengenal dua nilai kebenaran, yaitu benar (1) atau salah (0), fuzzy logic memungkinkan nilai kebenaran berada di antara 0 dan 1. Konsep ini memungkinkan komputer untuk memproses dan mengambil keputusan berdasarkan data yang tidak pasti, ambigu, dan tidak lengkap, layaknya bagaimana manusia berpikir dan mengambil keputusan. Fuzzy logic memecahkan masalah dengan menggunakan derajat keanggotaan, alih-alih menggunakan logika boolean yang kaku. Derajat keanggotaan menyatakan seberapa besar suatu elemen menjadi anggota dari suatu himpunan. Nilai derajat keanggotaan berkisar antara 0 (tidak menjadi anggota) hingga 1 (menjadi anggota penuh). Dengan konsep ini, fuzzy logic dapat menangani masalah yang sulit dideskripsikan dengan logika klasik, seperti pengaturan suhu ruangan, kendali kecepatan motor, dan pengenalan pola. Penerapan fuzzy logic telah meluas di berbagai bidang, mulai dari industri, otomotif, elektronik, hingga ilmu pengetahuan, dan terus berkembang seiring dengan kemajuan teknologi komputasi.
+
 
 \subsection{\textit{Fuzzy Time Series}}
 \textit{Fuzzy Time Series} (FTS) adalah metode peramalan yang pertama kali dikembangkan oleh Song dan Chissom pada tahun 1993.$^{[4]}$ Mereka memperkenalkan FTS dalam upaya untuk memprediksi jumlah pendaftaran mahasiswa baru di Universitas Alabama. Sejak awal pengembangannya, FTS telah terbukti efektif dan fleksibel, sehingga diaplikasikan pada berbagai macam masalah peramalan lainnya. Beberapa contoh penerapan FTS termasuk peramalan penjualan, peramalan harga saham, dan peramalan tingkat polusi udara.
@@ -109,10 +112,10 @@ Dalam literatur, terdapat banyak studi yang menunjukkan keberhasilan berbagai me
 
 Secara keseluruhan, prediksi harga adalah bidang yang terus berkembang dengan berbagai pendekatan yang menawarkan keunggulan dan keterbatasannya masing-masing. Dengan kemajuan teknologi dan peningkatan kapasitas komputasi, diharapkan metode prediksi harga akan semakin canggih dan mampu memberikan hasil yang lebih akurat dan andal di masa depan.
 
-\subsection{\textit{Mean Absolute Percentage Error}}
-\textit{Mean Absolute Percentage Error} (MAPE) adalah alat statistik yang digunakan untuk mengukur keakuratan suatu model statistik ketika melakukan peramalan atau prediksi. Dalam referensi lain, MAPE juga dikenal dengan sebutan \textit{mean absolute deviation rate} (MAPD). Pendekatan ini berfungsi untuk mengelola kemungkinan kesalahan dalam perkiraan dibandingkan dengan nilai aktual.$^{[16]}$ MAPE menyediakan cara yang mudah untuk menilai seberapa jauh nilai suatu prediksi menyimpang dari nilai aktual, relatif terhadap besarnya nilai aktual tersebut.
+% \subsection{\textit{Mean Absolute Percentage Error}}
+% \textit{Mean Absolute Percentage Error} (MAPE) adalah alat statistik yang digunakan untuk mengukur keakuratan suatu model statistik ketika melakukan peramalan atau prediksi. Dalam referensi lain, MAPE juga dikenal dengan sebutan \textit{mean absolute deviation rate} (MAPD). Pendekatan ini berfungsi untuk mengelola kemungkinan kesalahan dalam perkiraan dibandingkan dengan nilai aktual.$^{[16]}$ MAPE menyediakan cara yang mudah untuk menilai seberapa jauh nilai suatu prediksi menyimpang dari nilai aktual, relatif terhadap besarnya nilai aktual tersebut.
 
-Konsep pengukuran akurasi peramalan berakar pada pekerjaan statistik awal, tetapi MAPE sebagai pengukuran spesifik mulai menjadi terkenal pada pertengahan abad ke-20. Sepanjang sejarahnya, MAPE digunakan dalam peramalan bisnis dan ekonomi karena kemudahan interpretasi dan komunikasinya untuk pihak non-teknis. Namun, keterbatasannya dalam skenario tertentu (seperti ketika berhadapan dengan data yang memiliki nilai nol) telah menyebabkan diskusi yang berkelanjutan mengenai kapan dan bagaimana MAPE harus diterapkan.
+% Konsep pengukuran akurasi peramalan berakar pada pekerjaan statistik awal, tetapi MAPE sebagai pengukuran spesifik mulai menjadi terkenal pada pertengahan abad ke-20. Sepanjang sejarahnya, MAPE digunakan dalam peramalan bisnis dan ekonomi karena kemudahan interpretasi dan komunikasinya untuk pihak non-teknis. Namun, keterbatasannya dalam skenario tertentu (seperti ketika berhadapan dengan data yang memiliki nilai nol) telah menyebabkan diskusi yang berkelanjutan mengenai kapan dan bagaimana MAPE harus diterapkan.
 
 
 
@@ -122,7 +125,7 @@ Penelitian ini menggunakan data harga singkong dari tahun 2020 hingga 2022 yang 
 
 \begin{figure}[htbp]
     \centering
-    {\includegraphics[scale=0.18]{images/Flowchart.jpg}} 
+    {\includegraphics[width=\columnwidth]{images/Flowchart FTS.jpg}} 
     \caption{\textit{Flowchart} Pengolahan Data}
 \end{figure}
 
@@ -132,26 +135,48 @@ Data historis yang digunakan adalah data harga singkong dari tahun 2020 hingga 2
 
 Data harga yang digunakan dalam penelitian ini adalah data harga singkong produsen dari tahun 2020 hingga 2022 yang telah dilakukan augmentasi. Data ini kemudian diolah dan dianalisis menggunakan metode Fuzzy Time Series untuk memprediksi harga singkong di bulan selanjutnya.
 
-\subsection{Menentukan interval data dan jumlah himpunan \textit{fuzzy}}\label{AA}
+\subsection{Menentukan fungsi  keanggotaan himpunan fuzzy} \label{AA}
 Untuk menentukan interval data dan jumlah himpunan \textit{fuzzy} yang tepat, disini digunakan rumus Sturges sebagai berikut:
 
 \begin{equation}
     k = 1 + 3.33 \times \log_{10}(n)
 \end{equation}
-dimana $k$ adalah jumlah kelas, dan $n$ adalah jumlah data. Data yang digunakan adalah data harga singkong dari tahun 2020 hingga 2022, kemudian data di augmentasi sehingga didapatkan $n = 107$ dalam satuan bulan. Dengan menggunakan rumus tersebut, didapatkan $k = 8$. Karena jumlah kelas harus berupa bilangan bulat, maka jumlah kelas yang digunakan adalah 8.
+dimana $k$ adalah jumlah kelas, dan $n$ adalah jumlah data. Rumus Sturges ini memberikan panduan untuk menentukan jumlah kelas yang optimal berdasarkan ukuran sampel data. Dalam konteks himpunan \textit{fuzzy}, jumlah kelas ini dapat digunakan sebagai panduan untuk menentukan berapa banyak himpunan \textit{fuzzy} yang
 
 Metode Sturges merupakan salah satu metode yang digunakan untuk menentukan jumlah kelas dalam distribusi data, yang kemudian dapat digunakan untuk menentukan jumlah himpunan \textit{fuzzy}. Rumus Sturges ini memperhitungkan ukuran sampel \( n \) dan memberikan aturan untuk menghitung jumlah kelas \( k \) sebagai fungsi logaritmik dari \( n \). Dalam konteks himpunan \textit{fuzzy}, jumlah kelas yang dihasilkan dari rumus Sturges dapat digunakan sebagai panduan untuk menentukan berapa banyak himpunan \textit{fuzzy} yang perlu dibuat untuk mencakup seluruh rentang data secara efektif. Pendekatan ini membantu dalam memastikan bahwa setiap himpunan \textit{fuzzy} memiliki interval yang tepat, sehingga memberikan representasi yang lebih akurat dari data yang dianalisis.
 
-Secara praktis, metode Sturges sering digunakan karena kesederhanaannya dan kemampuannya untuk memberikan hasil yang cukup baik dalam berbagai situasi. Meskipun metode ini tidak selalu memberikan jumlah kelas yang optimal untuk semua jenis distribusi data, ia memberikan titik awal yang baik dan dapat disesuaikan lebih lanjut berdasarkan karakteristik spesifik dari data yang dianalisis. 
+% Secara praktis, metode Sturges sering digunakan karena kesederhanaannya dan kemampuannya untuk memberikan hasil yang cukup baik dalam berbagai situasi. Meskipun metode ini tidak selalu memberikan jumlah kelas yang optimal untuk semua jenis distribusi data, ia memberikan titik awal yang baik dan dapat disesuaikan lebih lanjut berdasarkan karakteristik spesifik dari data yang dianalisis. 
 
-Dalam penerapan himpunan \textit{fuzzy}, penting untuk mempertimbangkan bahwa jumlah himpunan yang terlalu sedikit dapat mengaburkan detail penting, sedangkan jumlah yang terlalu banyak dapat membuat model menjadi terlalu kompleks dan sulit diinterpretasikan. Dengan demikian, metode Sturges memberikan keseimbangan yang baik antara kompleksitas dan keterwakilan data.
+% Dalam penerapan himpunan \textit{fuzzy}, penting untuk mempertimbangkan bahwa jumlah himpunan yang terlalu sedikit dapat mengaburkan detail penting, sedangkan jumlah yang terlalu banyak dapat membuat model menjadi terlalu kompleks dan sulit diinterpretasikan. Dengan demikian, metode Sturges memberikan keseimbangan yang baik antara kompleksitas dan keterwakilan data.
+
+Langkah selanjutnya adalah menentukan nilai keanggotaan dari himpunan \textit{fuzzy}, untuk menentukan keanggotaan fuzzy song dan chissom (1993) mengusulkan 3 aturan sebagai berikut:
+
+\[
+\mu_{A_i}(u_i) = 
+\begin{cases} 
+1 & \text{jika } i = j \\
+0.5 & \text{jika } i = j - 1 \text{ atau } j + 1 \\
+0 & \text{yang lainnya}
+\end{cases}
+\]
+i menunjukkan posisi data saat ini dan j menunjukkan fungsi keanggotaan, apabila i = j maka nilai keanggotaan adalah 1, apabila i = j - 1 atau j + 1 maka nilai keanggotaan adalah 0.5, dan apabila yang lainnya maka nilai keanggotaan adalah 0.
+
+\begin{equation}
+\label{eq:1}
+\begin{aligned}
+    {A_1} = 1/{\mu_1} + 0.5/{\mu_2} + 0/{\mu_3} + 0/{\mu_4} + ... 0/{\mu_n} \\
+    {A_2} = 0.5/{\mu_1} + 1/{\mu_2} + 0.5/{\mu_3} + 0/{\mu_4} + ... 0/{\mu_n} \\
+    {A_n} = 0/{\mu_1} + 0/{\mu_2} + ... + 0.5/{\mu_{n-1}} + 1/{\mu_n} \\
+\end{aligned}
+\end{equation}
+
+   
+
+% untuk memprediksi kenaikan harga digunakan A1 = (sangat sangat turun), A2 = (sangat turun), A3 = (turun), A4 = (sedang), A5 = (naik), A6 = (sangat naik), A7 = (sangat sangat naik), dan A8 = (sangat sangat sangat naik). Setiap himpunan \textit{fuzzy} ini kemudian diwakili oleh fungsi keanggotaan yang mencakup rentang nilai data yang ada.
 
 
-
-\subsection{Klasifikasi \textit{fuzzy sets}}
-Dalam mendefinisikan \textit{fuzzy sets}, digunakan pengelompokkan berdasarkan interval data. Metode ini membagi data menjadi beberapa interval berdasarkan rentang nilai data. Setiap interval kemudian diwakili oleh sebuah \textit{fuzzy set} yang mencakup nilai-nilai dalam rentang tersebut. Dengan demikian, himpunan \textit{fuzzy} dapat memberikan representasi yang lebih fleksibel dan deskriptif dari data yang bersifat kontinu.
-
-Selain menggunakan interval data, data historis juga berperan penting dalam menentukan batas-batas dan keanggotaan dari masing-masing \textit{fuzzy set}. Analisis data historis membantu dalam memahami distribusi dan pola data, sehingga interval dan fungsi keanggotaan \textit{fuzzy} dapat didefinisikan dengan lebih akurat. Pendekatan ini memastikan bahwa \textit{fuzzy sets} tidak hanya mencerminkan rentang nilai yang ada, tetapi juga memperhitungkan karakteristik statistik dan pola temporal yang terdapat dalam data historis.
+\subsection{Klasifikasi fuzzy sets}
+Dalam mendefinisikan \textit{fuzzy sets}, digunakan pengelompokkan berdasarkan interval data. Metode ini membagi data menjadi beberapa interval berdasarkan rentang nilai data. Mulai dari mencari selisih antara data maksimum dan minimum, kemudian dibagi menjadi beberapa interval yang digunakan sebagai dasar untuk menentukan jumlah himpunan \textit{fuzzy}. Setelah interval data ditentukan, setiap interval diwakili oleh himpunan \textit{fuzzy} yang mencakup rentang nilai data tersebut. Setiap himpunan \textit{fuzzy} ini kemudian diwakili oleh fungsi keanggotaan yang mencakup rentang nilai data yang ada.
 
 % Membangun hubungan logika \textit{fuzzy}
 \subsection{Mencari nilai FLRG}
@@ -159,12 +184,12 @@ Dalam membangun hubungan logika \textit{fuzzy}, digunakan metode \textit{Fuzzy L
 
 Nilai FLRG adalah nilai yang didapat dari hasil mapping antara data harga bulan ini dengan data harga bulan selanjutnya. Nilai ini digunakan untuk memprediksi harga singkong di bulan selanjutnya.
 Untuk mendapatkan nilai FLRG, digunakan rumus sebagai berikut:
-    
 \begin{equation}
-        Nilai\; FLRG = \frac{\sum_{n=1}^{n_{th}} \text{Median (FLRG)}}{n_{th}}
-    \end{equation}
+    Nilai\; FLRG = \frac{\sum_{n=1}^{n_{th}} \text{Median (FLRG)}}{n_{th}}
+\end{equation}
     
-\subsection{\textit{Forecasting}}
+    
+\subsection{Forecasting}
 Langkah terakhir adalah memasukan data input kedalam model FTS dan melakukan peramalan. Dengan menggunakan data historis yang telah diperoleh, data input dimasukan kedalam model FTS. Model ini kemudian melakukan peramalan untuk memprediksi harga singkong di bulan selanjutnya. Hasil peramalan ini kemudian digunakan sebagai dasar untuk membuat keputusan yang lebih baik dalam merencanakan dan mengelola harga singkong. 
 
 Dengan menggunakan model FTS, didapatkan hasil peramalan harga singkong untuk bulan selanjutnya. Hasil ini dapat menjadi perkiraan harga singkong di bulan selanjutnya. Peramalan harga singkong ini harus selalu diperbarui dengan data terbaru untuk mendapatkan hasil yang lebih akurat dan dapat diandalkan karena jika mengandalkan pola harga yang sudah lama, maka hasil peramalan akan kurang akurat.
@@ -181,13 +206,34 @@ Data historis harga singkong digunakan sebagai dasar untuk analisis ini. Berikut
 \end{figure}
 Data tersebut kemudian diaugmentasi untuk memperoleh data yang lebih lengkap dan representatif. Karena data direkap bulanan, maka kode data augmentasi menggunakan tanggal untuk membedakan data asli dengan data augmentasi. Data augmentasi didapat dari penghitungan rata-rata bulan sebelumnya dan bulan setelahnya. Augmentasi dilakukan hingga data mencapai lebih dari 100 data. Data ini kemudian digunakan sebagai dasar untuk membangun model FTS.
 
-\subsection{Menentukan interval data dan jumlah himpunan \textit{fuzzy}}
+\subsection{Menentukan fungsi keanggotaan himpunan fuzzy}
 
-Untuk menentukan interval data dan jumlah himpunan \textit{fuzzy}, digunakan rumus Sturges. Berdasarkan rumus tersebut, data dibagi menjadi beberapa interval yang digunakan untuk menentukan jumlah himpunan \textit{fuzzy}. Menggunakan rumus Sturges, didapatkan jumlah himpunan \textit{fuzzy} sebanyak 8 interval data. Interval data ini kemudian digunakan sebagai dasar untuk membangun himpunan \textit{fuzzy} dan hubungan logika \textit{fuzzy}.
+Menggunakan rumus Sturges, didapatkan jumlah himpunan \textit{fuzzy} sebanyak 8 interval data. Interval data ini kemudian digunakan sebagai dasar untuk membangun himpunan \textit{fuzzy} dan hubungan logika \textit{fuzzy}. Lalu berdasarkan aturan fungsi keanggotaan yang diusulkan oleh Song dan Chissom (1993), didapatkan nilai keanggotaan dari himpunan \textit{fuzzy} sebagai berikut:
+\begin{equation*}
+    \label{eq:2}
+    \begin{aligned}
+        A_1 &= 1/{\mu_1} + 0.5/{\mu_2} + 0/{\mu_3} + 0/{\mu_4} + 0/{\mu_5} \\ 
+            &\quad + 0/{\mu_6} + 0/{\mu_7} + 0/{\mu_8}\\
+        A_2 &= 0.5/{\mu_1} + 1/{\mu_2} + 0.5/{\mu_3} + 0/{\mu_4} + 0/{\mu_5} \\ 
+            &\quad + 0/{\mu_6} + 0/{\mu_7} + 0/{\mu_8}\\
+        A_3 &= 0/{\mu_1} + 0.5/{\mu_2} + 1/{\mu_3} + 0.5/{\mu_4} + 0/{\mu_5} \\
+            &\quad + 0/{\mu_6} + 0/{\mu_7} + 0/{\mu_8}\\
+        A_4 &= 0/{\mu_1} + 0/{\mu_2} + 0.5/{\mu_3} + 1/{\mu_4} + 0.5/{\mu_5} \\
+            &\quad + 0/{\mu_6} + 0/{\mu_7} + 0/{\mu_8}\\
+        A_5 &= 0/{\mu_1} + 0/{\mu_2} + 0/{\mu_3} + 0.5/{\mu_4} + 1/{\mu_5} \\
+            &\quad + 0.5/{\mu_6} + 0/{\mu_7} + 0/{\mu_8}\\
+        A_6 &= 0/{\mu_1} + 0/{\mu_2} + 0/{\mu_3} + 0/{\mu_4} + 0.5/{\mu_5} \\
+            &\quad + 1/{\mu_6} + 0.5/{\mu_7} + 0/{\mu_8}\\
+        A_7 &= 0/{\mu_1} + 0/{\mu_2} + 0/{\mu_3} + 0/{\mu_4} + 0/{\mu_5} \\
+            &\quad + 0.5/{\mu_6} + 1/{\mu_7} + 0.5/{\mu_8}\\
+        A_8 &= 0/{\mu_1} + 0/{\mu_2} + 0/{\mu_3} + 0/{\mu_4} + 0/{\mu_5} \\
+            &\quad + 0/{\mu_6} + 0.5/{\mu_7} + 1/{\mu_8}
+    \end{aligned}
+    \end{equation*}
 
 
 
-\subsection{Mendefinisikan \textit{fuzzy sets} berdasarkan interval data dan data historis}
+\subsection{Klasifikasi fuzzy sets}
 Setiap interval kemudian diwakili oleh himpunan \textit{fuzzy}. Dalam penelitian ini, digunakan 8 interval data yang masing-masing diwakili oleh himpunan \textit{fuzzy}, yaitu:
 \begin{figure}[H]
     \centering
@@ -213,7 +259,7 @@ Dari hasil pemetaan tersebut, didapatkan nilai FLRG yang digunakan untuk mempred
     \caption{\textit{Fuzzy Logical Relationship Group}}
 \end{figure}
 
-\subsection{\textit{Forecasting}}
+\subsection{Forecasting}
 Langkah terakhir adalah memasukkan data input ke dalam model FTS dan melakukan peramalan. Dengan menggunakan data historis dan nilai FLRG yang telah diperoleh, model FTS melakukan peramalan untuk memprediksi harga singkong di bulan selanjutnya. Berikut adalah contoh hasil peramalan harga singkong menggunakan model FTS:
 \begin{figure}[H]
     \centering
@@ -221,17 +267,27 @@ Langkah terakhir adalah memasukkan data input ke dalam model FTS dan melakukan p
     \caption{Peramalan Harga Singkong}
 \end{figure}
 
+Dan peramalan untuk bulan selanjutnya Januari 2023 sebesar Rp 3384.15 dengan masukan bulan sebelumnya yaitu Rp. 3355. Untuk bulan Februari 2023 sebesar Rp 3431.375, dan bulan Maret dan seterusnya Rp 3289.625. Hasil permalan setelah bulan Maret selalu menghasilkan nilai Rp 3289.625 yang menunjukkan bahwa model FTS tidak dapat memprediksi harga singkong di bulan selanjutnya. Hal ini disebabkan oleh data yang digunakan dalam model FTS yang tidak cukup untuk memprediksi harga singkong di masa yang akan datang.
+
 
 \subsection{Evaluasi model}
-Evaluasi model dilakukan dengan membandingkan hasil peramalan dengan data aktual. Dalam evaluasi model data dibagi menjadi dua bagian, yaitu 70\% data training dan 30\% data testing. Dengan menggunakan metode MAPE, dapat dihitung tingkat kesalahan peramalan. Rumus MAPE adalah sebagai berikut:
-\begin{equation}
-    MAPE = \frac{1}{n} \sum_{t=1}^{n} \left| \frac{A_t - F_t}{A_t} \right| \times 100\%
-\end{equation}
-dimana $A_t$ adalah data aktual, $F_t$ adalah data peramalan, dan $n$ adalah jumlah data. Lalu untuk melakukan evaluasi model,  
-Dengan menggunakan rumus tersebut, dapat dihitung tingkat kesalahan peramalan dan mengevaluasi model yang telah dibangun. Berdasarkan hasil evaluasi, model FTS dengan proporsi 70\% data training dan 30\% validasi memiliki tingkat kesalahan sebesar 1.26\% dan evaluasi model terhadap data validasi asli yaitu 2.01\% yang menunjukkan bahwa model ini cukup akurat berdasarkan hasil training.
+Evaluasi model dilakukan dengan membandingkan hasil peramalan dengan data aktual. Dalam evaluasi model ini, model dibangun atas 3 jenis data yaitu data tanpa augmentasi, data dengan 1 kali augmentasi, dan data dengan 2 kali augmentasi. Berikut adalah hasil evaluasi model FTS berdasarkan data tersebut:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/table_evaluasi.png} 
+    \caption{Evaluasi Model FTS}
+\end{figure}
 
-\subsection{Pembahasan}
-Dari hasil pengolahan data yang telah dilakukan, diperoleh konklusi sebagai berikut. Metode \textit{fuzzy time series} (FTS) mungkin kurang cocok digunakan untuk memprediksi data yang memerlukan tingkat keakuratan dan ketelitian yang sangat tinggi. FTS dapat memprediksi sebuah harga barang untuk masa yang akan datang tetapi lebih bersifat klasifikasi, memperkirakan harga untuk bulan selanjutnya berada di class apa. Oleh karena itu, model FTS yang telah dibangun dalam penelitian ini dapat digunakan sebagai alat bantu untuk memprediksi harga singkong di bulan selanjutnya dengan catatan, model ini harus selalu diperbarui dengan data terbaru untuk mendapatkan hasil yang lebih akurat dan dapat diandalkan.
+Berdasarkan hasil evaluasi, model FTS dengan data augmentasi memiliki persentase kesalahan yang lebih kecil dibandingkan dengan model FTS tanpa augmentasi. Hal ini menunjukkan bahwa data augmentasi dapat meningkatkan akurasi model FTS dalam memprediksi harga singkong. Namun, meskipun data augmentasi dapat meningkatkan performa model. 
+% \begin{equation}
+%     MAPE = \frac{1}{n} \sum_{t=1}^{n} \left| \frac{A_t - F_t}{A_t} \right| \times 100\%
+% \end{equation}
+% dimana $A_t$ adalah data aktual, $F_t$ adalah data peramalan, dan $n$ adalah jumlah data. Dengan menggunakan rumus tersebut, dapat dihitung tingkat kesalahan peramalan dan mengevaluasi model yang telah dibangun. Berdasarkan hasil evaluasi, model FTS dengan proporsi 70\% data training dan 30\% validasi memiliki tingkat kesalahan sebesar 1.26\% dan evaluasi model terhadap data validasi asli yaitu 2.01\% yang menunjukkan bahwa model ini cukup akurat berdasarkan hasil training.
+
+\section{Kesimpulan dan Saran}
+Dari hasil pengolahan data yang telah dilakukan, diperoleh konklusi sebagai berikut. Metode \textit{fuzzy time series} (FTS) kurang cocok digunakan untuk memprediksi data yang memerlukan tingkat keakuratan dan ketelitian yang sangat tinggi karena berdasarkan hasil pengukuran, akurasi model FTS masih rendah tetapi cocok untuk memprediksi harga bulan selanjutnya karena hasil evaluasi eror menunjukkan angka yang kecil. FTS dapat memprediksi sebuah harga barang untuk masa yang akan datang tetapi lebih bersifat klasifikasi, memperkirakan harga untuk bulan selanjutnya berada di class apa. Oleh karena itu, model FTS yang telah dibangun dalam penelitian ini dapat digunakan sebagai alat bantu untuk memprediksi harga singkong di bulan selanjutnya dengan catatan, model ini harus selalu diperbarui dengan data terbaru untuk mendapatkan hasil yang lebih akurat dan dapat diandalkan.
+
+Saran untuk penelitian selanjutnya adalah melakukan pengembangan model FTS dengan menggunakan data yang lebih lengkap dan representatif. Selain itu, dapat dilakukan penelitian lebih lanjut untuk membandingkan model FTS dengan metode prediksi lainnya, seperti ARIMA, regresi linier, dan \textit{artificial neural networks} (ANN). Dengan demikian, diharapkan penelitian ini dapat memberikan kontribusi yang lebih besar dalam pengembangan ilmu pengetahuan dan teknologi, khususnya dalam bidang prediksi harga komoditas.
 
 
 
