@@ -11,6 +11,7 @@
 \usepackage{caption}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
+\usepackage[export]{adjustbox}
 
 \captionsetup[figure]{name=Gambar}
 \pagestyle{fancy}
@@ -116,16 +117,13 @@ Secara keseluruhan, prediksi harga adalah bidang yang terus berkembang dengan be
 % \textit{Mean Absolute Percentage Error} (MAPE) adalah alat statistik yang digunakan untuk mengukur keakuratan suatu model statistik ketika melakukan peramalan atau prediksi. Dalam referensi lain, MAPE juga dikenal dengan sebutan \textit{mean absolute deviation rate} (MAPD). Pendekatan ini berfungsi untuk mengelola kemungkinan kesalahan dalam perkiraan dibandingkan dengan nilai aktual.$^{[16]}$ MAPE menyediakan cara yang mudah untuk menilai seberapa jauh nilai suatu prediksi menyimpang dari nilai aktual, relatif terhadap besarnya nilai aktual tersebut.
 
 % Konsep pengukuran akurasi peramalan berakar pada pekerjaan statistik awal, tetapi MAPE sebagai pengukuran spesifik mulai menjadi terkenal pada pertengahan abad ke-20. Sepanjang sejarahnya, MAPE digunakan dalam peramalan bisnis dan ekonomi karena kemudahan interpretasi dan komunikasinya untuk pihak non-teknis. Namun, keterbatasannya dalam skenario tertentu (seperti ketika berhadapan dengan data yang memiliki nilai nol) telah menyebabkan diskusi yang berkelanjutan mengenai kapan dan bagaimana MAPE harus diterapkan.
-
-
-
 \section{Metode Penelitian}
 
 Penelitian ini menggunakan data harga singkong dari tahun 2020 hingga 2022 yang telah di augmentasi. Data ini diperoleh dari hasil laporan yang diterbitkan oleh Kementerian Pertanian Indonesia yang bekerja sama dengan Badan Pusat Statistik. Data yang digunakan adalah data bulanan yang mewakili banyak wilayah di Indonesia dengan didasarkan kepada 7 provinsi yaitu Lampung, Jawa Tengah, Jawa Timur, Jawa Barat, Sumatera Utara, Yogyakarta, dan NTT. Data ini kemudian diolah dan dianalisis menggunakan metode FTS dengan diagram \textit{flowchart} sebagai berikut:
 
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
-    {\includegraphics[width=\columnwidth]{images/Flowchart FTS.jpg}} 
+    {\includegraphics[width=0.7\columnwidth, center]{images/Flowchart FTS.jpg}} 
     \caption{\textit{Flowchart} Pengolahan Data}
 \end{figure}
 
