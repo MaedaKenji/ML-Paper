@@ -139,9 +139,9 @@ Untuk menentukan interval data dan jumlah himpunan \textit{fuzzy} yang tepat, di
 \begin{equation}
     k = 1 + 3.33 \times \log_{10}(n)
 \end{equation}
-dimana $k$ adalah jumlah kelas, dan $n$ adalah jumlah data. Rumus Sturges ini memberikan panduan untuk menentukan jumlah kelas yang optimal berdasarkan ukuran sampel data. Dalam konteks himpunan \textit{fuzzy}, jumlah kelas ini dapat digunakan sebagai panduan untuk menentukan berapa banyak himpunan \textit{fuzzy} yang
+dimana $k$ adalah jumlah kelas, dan $n$ adalah jumlah data. Rumus Sturges ini memberikan panduan untuk menentukan jumlah kelas yang optimal berdasarkan ukuran sampel data. Dalam konteks himpunan \textit{fuzzy}, jumlah kelas ini dapat digunakan sebagai panduan untuk menentukan berapa banyak fungsi keanggotaan himpunan \textit{fuzzy} yang akan dibentuk.
 
-Metode Sturges merupakan salah satu metode yang digunakan untuk menentukan jumlah kelas dalam distribusi data, yang kemudian dapat digunakan untuk menentukan jumlah himpunan \textit{fuzzy}. Rumus Sturges ini memperhitungkan ukuran sampel \( n \) dan memberikan aturan untuk menghitung jumlah kelas \( k \) sebagai fungsi logaritmik dari \( n \). Dalam konteks himpunan \textit{fuzzy}, jumlah kelas yang dihasilkan dari rumus Sturges dapat digunakan sebagai panduan untuk menentukan berapa banyak himpunan \textit{fuzzy} yang perlu dibuat untuk mencakup seluruh rentang data secara efektif. Pendekatan ini membantu dalam memastikan bahwa setiap himpunan \textit{fuzzy} memiliki interval yang tepat, sehingga memberikan representasi yang lebih akurat dari data yang dianalisis.
+Dalam konteks himpunan \textit{fuzzy}, jumlah kelas yang dihasilkan dari rumus Sturges dapat digunakan sebagai panduan untuk menentukan berapa banyak himpunan \textit{fuzzy} yang perlu dibuat untuk mencakup seluruh rentang data secara efektif. Pendekatan ini membantu dalam memastikan bahwa setiap himpunan \textit{fuzzy} memiliki interval yang tepat, sehingga memberikan representasi yang lebih akurat dari data yang dianalisis.
 
 % Secara praktis, metode Sturges sering digunakan karena kesederhanaannya dan kemampuannya untuk memberikan hasil yang cukup baik dalam berbagai situasi. Meskipun metode ini tidak selalu memberikan jumlah kelas yang optimal untuk semua jenis distribusi data, ia memberikan titik awal yang baik dan dapat disesuaikan lebih lanjut berdasarkan karakteristik spesifik dari data yang dianalisis. 
 
@@ -175,6 +175,8 @@ i menunjukkan posisi data saat ini dan j menunjukkan fungsi keanggotaan, apabila
 
 \subsection{Klasifikasi fuzzy sets}
 Dalam mendefinisikan \textit{fuzzy sets}, digunakan pengelompokkan berdasarkan interval data. Metode ini membagi data menjadi beberapa interval berdasarkan rentang nilai data. Mulai dari mencari selisih antara data maksimum dan minimum, kemudian dibagi menjadi beberapa interval yang digunakan sebagai dasar untuk menentukan jumlah himpunan \textit{fuzzy}. Setelah interval data ditentukan, setiap interval diwakili oleh himpunan \textit{fuzzy} yang mencakup rentang nilai data tersebut. Setiap himpunan \textit{fuzzy} ini kemudian diwakili oleh fungsi keanggotaan yang mencakup rentang nilai data yang ada.
+
+Dari 8 fungsi keanggotaan masing-masing himpunan diwakili oleh nilai linguistik sebagai berikut: A1 (sangat sangat turun), A2 (sangat turun), A3 (turun), A4 (sedang), A5 (naik), A6 (sangat naik), A7 (sangat sangat naik), dan A8 (sangat sangat sangat naik). Setiap himpunan \textit{fuzzy} ini kemudian diwakili oleh fungsi keanggotaan yang mencakup rentang nilai data yang ada. 
 
 % Membangun hubungan logika \textit{fuzzy}
 \subsection{Mencari nilai FLRG}
