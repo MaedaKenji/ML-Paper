@@ -92,7 +92,7 @@ Fuzzy logic merupakan suatu konsep matematika yang berusaha untuk memodelkan pro
 \subsection{\textit{Fuzzy Time Series}}
 \textit{Fuzzy Time Series} (FTS) adalah metode peramalan yang pertama kali dikembangkan oleh Song dan Chissom pada tahun 1993.$^{[4]}$ Mereka memperkenalkan FTS dalam upaya untuk memprediksi jumlah pendaftaran mahasiswa baru di Universitas Alabama. Sejak awal pengembangannya, FTS telah terbukti efektif dan fleksibel, sehingga diaplikasikan pada berbagai macam masalah peramalan lainnya. Beberapa contoh penerapan FTS termasuk peramalan penjualan, peramalan harga saham, dan peramalan tingkat polusi udara.
 
-FTS menggunakan tiga prinsip utama dalam proses peramalan, yaitu Fuzzifikasi, Hubungan Logika \textit{Fuzzy} (\textit{Fuzzy Logical Relationship}), dan Peramalan (\textit{Forecasting}). Fuzzifikasi adalah proses mengubah data numerik menjadi data \textit{fuzzy}, yaitu data yang diwakili oleh himpunan \textit{fuzzy}. Setelah data difuzzifikasi, langkah selanjutnya adalah membangun hubungan logika \textit{fuzzy}. Hubungan ini menggambarkan pola hubungan antar nilai data yang telah difuzzifikasi. Terakhir, berdasarkan hubungan logika \textit{fuzzy} yang telah dibangun, dilakukan peramalan untuk memprediksi nilai data di masa depan.
+FTS menggunakan tiga prinsip utama dalam proses peramalan, yaitu Fuzzifikasi, Hubungan Logika \textit{Fuzzy} (\textit{Fuzzy Logical Relationship}), dan Peramalan (\textit{Forecasting}). Fuzzifikasi adalah proses mengubah data numerik menjadi data \textit{fuzzy}, yaitu data yang diwakili oleh himpunan \textit{fuzzy}. Setelah data di fuzzifikasi, langkah selanjutnya adalah membangun hubungan logika \textit{fuzzy}. Hubungan ini menggambarkan pola hubungan antar nilai data yang telah difuzzifikasi. Terakhir, berdasarkan hubungan logika \textit{fuzzy} yang telah dibangun, dilakukan peramalan untuk memprediksi nilai data di masa depan.
 
 Secara lengkap, proses peramalan menggunakan FTS terdiri dari beberapa tahapan, yaitu:
     1) Memperoleh data historis (augmentasi data apabila diperlukan.)
@@ -109,7 +109,7 @@ Metode statistik tradisional seperti regresi linier, analisis deret waktu (time 
 
 Selain itu, model berbasis teori himpunan \textit{fuzzy} seperti FTS juga telah diterapkan dalam prediksi harga.$^{[10]}$ Metode ini memperhitungkan ketidakpastian dan ketidakjelasan dalam data, yang seringkali diabaikan oleh metode tradisional. Dalam FTS, data historis harga diubah menjadi himpunan \textit{fuzzy}, dan aturan-aturan \textit{fuzzy} diturunkan untuk meramalkan nilai di masa depan. Misalnya, studi oleh Song dan Chissom (1993) menunjukkan bahwa metode ini efektif untuk memprediksi data ekonomi yang bersifat fluktuatif dan tidak pasti.$^{[11]}$
 
-Dalam literatur, terdapat banyak studi yang menunjukkan keberhasilan berbagai metode prediksi harga. Misalnya, studi oleh Zhang dan Wu (2009) membandingkan kinerja model ARIMA dengan model \textit{artificial neural networks} (ANN) dalam memprediksi harga saham, dan menemukan bahwa jaringan saraf tiruan memberikan hasil yang lebih akurat.$^{[12]}$ Studi lainnya oleh Alptekin,D. dan Alptekin,B. (2017) memperkenalkan metode FTS yang diaugmentasi untuk prediksi harga emas, menunjukkan bahwa pendekatan ini lebih unggul dibandingkan dengan metode prediksi tradisional dalam kondisi pasar yang bergejolak.$^{[13]}$
+Dalam literatur, terdapat banyak studi yang menunjukkan keberhasilan berbagai metode prediksi harga. Misalnya, studi oleh Zhang dan Wu (2009) membandingkan kinerja model ARIMA dengan model \textit{artificial neural networks} (ANN) dalam memprediksi harga saham, dan menemukan bahwa jaringan saraf tiruan memberikan hasil yang lebih akurat.$^{[12]}$ Studi lainnya oleh Alptekin,D. dan Alptekin,B. (2017) memperkenalkan metode FTS yang di augmentasi untuk prediksi harga emas, menunjukkan bahwa pendekatan ini lebih unggul dibandingkan dengan metode prediksi tradisional dalam kondisi pasar yang bergejolak.$^{[13]}$
 
 Secara keseluruhan, prediksi harga adalah bidang yang terus berkembang dengan berbagai pendekatan yang menawarkan keunggulan dan keterbatasannya masing-masing. Dengan kemajuan teknologi dan peningkatan kapasitas komputasi, diharapkan metode prediksi harga akan semakin canggih dan mampu memberikan hasil yang lebih akurat dan andal di masa depan.
 
@@ -189,7 +189,7 @@ Untuk mendapatkan nilai FLRG, digunakan rumus sebagai berikut:
     
     
 \subsection{Forecasting}
-Langkah terakhir adalah memasukan data input kedalam model FTS dan melakukan peramalan. Dengan menggunakan data historis yang telah diperoleh, data input dimasukan kedalam model FTS. Model ini kemudian melakukan peramalan untuk memprediksi harga singkong di bulan selanjutnya. Hasil peramalan ini kemudian digunakan sebagai dasar untuk membuat keputusan yang lebih baik dalam merencanakan dan mengelola harga singkong. 
+Langkah terakhir adalah memasukan data input ke dalam model FTS dan melakukan peramalan. Dengan menggunakan data historis yang telah diperoleh, data input dimasukan kedalam model FTS. Model ini kemudian melakukan peramalan untuk memprediksi harga singkong di bulan selanjutnya. Hasil peramalan ini kemudian digunakan sebagai dasar untuk membuat keputusan yang lebih baik dalam merencanakan dan mengelola harga singkong. 
 
 Dengan menggunakan model FTS, didapatkan hasil peramalan harga singkong untuk bulan selanjutnya. Hasil ini dapat menjadi perkiraan harga singkong di bulan selanjutnya. Peramalan harga singkong ini harus selalu diperbarui dengan data terbaru untuk mendapatkan hasil yang lebih akurat dan dapat diandalkan karena jika mengandalkan pola harga yang sudah lama, maka hasil peramalan akan kurang akurat.
 
@@ -203,7 +203,7 @@ Data historis harga singkong digunakan sebagai dasar untuk analisis ini. Berikut
     \includegraphics[width=\columnwidth]{images/Data Historis.png} 
     \caption{Data Historis Harga Singkong}
 \end{figure}
-Data tersebut kemudian diaugmentasi untuk memperoleh data yang lebih lengkap dan representatif. Karena data direkap bulanan, maka kode data augmentasi menggunakan tanggal untuk membedakan data asli dengan data augmentasi. Data augmentasi didapat dari penghitungan rata-rata bulan sebelumnya dan bulan setelahnya. Augmentasi dilakukan hingga data mencapai lebih dari 100 data. Data ini kemudian digunakan sebagai dasar untuk membangun model FTS.
+Data tersebut kemudian di augmentasi untuk memperoleh data yang lebih lengkap dan representatif. Karena data direkap bulanan, maka kode data augmentasi menggunakan tanggal untuk membedakan data asli dengan data augmentasi. Data augmentasi didapat dari penghitungan rata-rata bulan sebelumnya dan bulan setelahnya. Augmentasi dilakukan hingga data mencapai lebih dari 100 data. Data ini kemudian digunakan sebagai dasar untuk membangun model FTS.
 
 \subsection{Menentukan fungsi keanggotaan himpunan fuzzy}
 
@@ -246,7 +246,7 @@ Setelah mendefinisikan \textit{fuzzy sets} berdasarkan interval data dan data hi
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.4]{images/hasil_mapping.png} 
+    \includegraphics[scale=0.3]{images/hasil_mapping.png} 
     \caption{Pemetaan klasifikasi harga}
 \end{figure}
 
@@ -267,7 +267,7 @@ Langkah terakhir adalah memasukkan data input ke dalam model FTS dan melakukan p
     \caption{Peramalan Harga Singkong}
 \end{figure}
 
-Dan peramalan untuk bulan selanjutnya Januari 2023 sebesar Rp 3384.15 dengan masukan bulan sebelumnya yaitu Rp. 3355. Untuk bulan Februari 2023 sebesar Rp 3431.375, dan bulan Maret dan seterusnya Rp 3289.625. Hasil permalan setelah bulan Maret selalu menghasilkan nilai Rp 3289.625 yang menunjukkan bahwa model FTS tidak dapat memprediksi harga singkong di bulan selanjutnya. Hal ini disebabkan oleh data yang digunakan dalam model FTS yang tidak cukup untuk memprediksi harga singkong di masa yang akan datang.
+Dan peramalan untuk bulan selanjutnya Januari 2023 sebesar Rp 3384.15 dengan masukan bulan sebelumnya yaitu Rp. 3355. Untuk bulan Februari 2023 sebesar Rp 3431.375, dan bulan Maret dan seterusnya Rp 3289.625. Hasil peramalan setelah bulan Maret selalu menghasilkan nilai Rp 3289.625 yang menunjukkan bahwa model FTS tidak dapat memprediksi harga singkong di bulan selanjutnya. Hal ini disebabkan oleh data yang digunakan dalam model FTS yang tidak cukup untuk memprediksi harga singkong di masa yang akan datang.
 
 
 \subsection{Evaluasi model}
@@ -278,7 +278,7 @@ Evaluasi model dilakukan dengan membandingkan hasil peramalan dengan data aktual
     \caption{Evaluasi Model FTS}
 \end{figure}
 
-Berdasarkan hasil evaluasi, model FTS dengan data augmentasi memiliki persentase kesalahan yang lebih kecil dibandingkan dengan model FTS tanpa augmentasi. Hal ini menunjukkan bahwa data augmentasi dapat meningkatkan akurasi model FTS dalam memprediksi harga singkong. Namun, meskipun data augmentasi dapat meningkatkan performa model. 
+Berdasarkan hasil evaluasi, model FTS dengan data augmentasi memiliki persentase kesalahan yang lebih kecil dibandingkan dengan model FTS tanpa augmentasi. Hal ini menunjukkan bahwa data augmentasi dapat meningkatkan akurasi model FTS dalam memprediksi harga singkong. 
 % \begin{equation}
 %     MAPE = \frac{1}{n} \sum_{t=1}^{n} \left| \frac{A_t - F_t}{A_t} \right| \times 100\%
 % \end{equation}
